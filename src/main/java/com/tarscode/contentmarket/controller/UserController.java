@@ -32,17 +32,25 @@ public class UserController {
 
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(Model model, String name, String password,HttpSession session) {
+    public String login(Model model, String name, String password, HttpSession session) {
         User user = userService.getByName(name);
         if (user != null && user.getPassword().equals(password + user.getSalt())) {
-            session.setAttribute("userName",user.getName());
-            session.setAttribute("userId",user.getId());
-            session.setAttribute("userType",user.getType());
+            session.setAttribute("userName", user.getName());
+            session.setAttribute("userId", user.getId());
+            session.setAttribute("userType", user.getType());
             return "index";
         } else {
-            model.addAttribute("msg","用户名或密码错误");
+            model.addAttribute("msg", "用户名或密码错误");
             return "login";
         }
     }
 
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String login(HttpSession session) {
+        session.setAttribute("userName", null);
+        session.setAttribute("userId", null);
+        session.setAttribute("userType", null);
+        return "index";
+    }
 }
+

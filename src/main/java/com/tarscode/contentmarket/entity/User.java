@@ -14,7 +14,7 @@ public class User {
     private String password;
     private String salt;
     private String phone;
-    private int type; //用于区分买家和卖家类型
+    private int type; //用于区分买家和卖家类型,1:买家；2:卖家
     private int state; //用户注销使用
 
 

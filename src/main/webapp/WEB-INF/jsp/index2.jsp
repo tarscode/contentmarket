@@ -14,17 +14,7 @@
     <div class="m-tab m-tab-fw m-tab-simple f-cb">
         <div class="tab">
             <ul>
-                <c:choose>
-                    <c:when test="${flag==2}">
-                        <li><a href="/item/list/all">所有内容</a></li>
-                        <li class="z-sel"><a href="/item/list/notbuy">未购买的内容</a></li>
-                    </c:when>
-
-                    <c:otherwise>
-                        <li class="z-sel"><a href="/item/list/all">所有内容</a></li>
-                        <li><a href="/item/list/notbuy">未购买的内容</a></li>
-                    </c:otherwise>
-                </c:choose>
+                <li class="z-sel"><a href="/item/list/sell">所有内容</a></li>
             </ul>
         </div>
     </div>
@@ -36,7 +26,8 @@
                         <div class="img"><img src="${item.image}" alt=""></div>
                         <h3>${item.title}</h3>
                         <div class="price"><span class="v-unit">¥</span><span class="v-value">${item.price}</span></div>
-                        <c:if test="${item.status==1}"><span class="had"><b>已购买</b></span></c:if>
+                        <c:if test="${item.count!=0}"><span class="had"><b>已售出</b></span></c:if>
+                        <c:if test="${item.count==0}"><span class="u-btn u-btn-normal u-btn-xs del" data-del="3">删除</span></c:if>
                     </a>
                 </li>
             </c:forEach>

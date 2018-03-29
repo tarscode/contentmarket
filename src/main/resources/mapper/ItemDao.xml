@@ -12,5 +12,18 @@
         insert into Item(title,price,image,summary,detail) values(#{title}, #{price},#{image},#{summary},#{detail})
     </insert>
 
+    <select id="listAll" resultType="Item" >
+        select
+        <include refid="Base_Column_List" />
+        from item
+        where 1 = 1
+    </select>
+
+    <select id="queryById" resultType="Item" parameterType="Long">
+        select
+        <include refid="Base_Column_List" />
+        from item
+        where id = #{id}
+    </select>
 
 </mapper>
