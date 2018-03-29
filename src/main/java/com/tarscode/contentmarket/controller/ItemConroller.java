@@ -81,4 +81,10 @@ public class ItemConroller {
         model.addAttribute("item",item);
         return "show";
     }
+
+    @RequestMapping(value = "/buy/{id}",method = RequestMethod.GET)
+    public String buyItem(Model model, @PathVariable("id")long id){
+        itemService.buyItem(id);
+        return "show";
+    }
 }

@@ -28,4 +28,6 @@ public interface ItemService {
     List<SellItem> listAllSellItems(User user);
 
     Item getItem(long id);
+
+    void buyItem(long id);
 }

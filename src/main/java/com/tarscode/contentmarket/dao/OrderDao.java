@@ -16,4 +16,6 @@ public interface OrderDao {
 
     List<Order> listAll();
 
+    int add(Order order);
+
 }

@@ -15,4 +15,8 @@
         where 1 = 1
     </select>
 
+    <insert id="add" parameterType="Order">
+        insert into Item(user_id,item_id,title,image,create_time,price,count) values(#{userId}, #{itemId},${title},#{image},#{createTime},#{price},#{count})
+    </insert>
+
 </mapper>

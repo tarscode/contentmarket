@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -108,5 +109,17 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public Item getItem(long id) {
         return itemDao.queryById(id);
+    }
+
+    @Override
+    public void buyItem(long id) {
+        Item item = itemDao.queryById(id);
+        Order order = new Order();
+        Date date = new Date();
+        order.setTitle(item.getTitle());
+        order.setImage(item.getImage());
+        order.setCreateTime(String.valueOf(date.getTime()));
+        order.setCount(1);
+        orderDao.add(order);
     }
 }

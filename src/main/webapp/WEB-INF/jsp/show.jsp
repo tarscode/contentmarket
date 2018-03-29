@@ -1,12 +1,13 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <html>
 <head>
-<meta charset="utf-8"/>
-<title>java</title>
-<link rel="stylesheet" href="../css/style.css"/>
+    <meta charset="utf-8"/>
+    <title>java</title>
+    <link rel="stylesheet" href="../css/style.css"/>
 </head>
 <body>
-<<%@include file="common/head.jsp" %>
+<
+<%@include file="common/head.jsp" %>
 <div class="g-doc">
     <div class="n-show f-cb" id="showContent">
         <div class="img"><img src="${item.image}" alt=""></div>
@@ -18,9 +19,9 @@
             </div>
             <div class="oprt f-cb">
                 <c:if test="${sessionScope.userType==1}">
-                <button class="u-btn u-btn-primary" data-buy="1">购 买</button>
-                <span class="u-btn u-btn-primary z-dis">已购买</span>
-                <span class="buyprice">当时购买价格：¥${item.price}</span>
+                    <a href="/item/buy/${item.id}" class="u-btn u-btn-primary">购 买</a>
+                    <span class="u-btn u-btn-primary z-dis">已购买</span>
+                    <span class="buyprice">当时购买价格：¥${item.price}</span>
                 </c:if>
                 <c:if test="${sessionScope.userType==2}">
                     <a href="/item/edit/${item.id}" class="u-btn u-btn-primary">编 辑</a>
