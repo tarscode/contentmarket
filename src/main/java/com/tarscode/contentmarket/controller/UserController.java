@@ -6,11 +6,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.List;
+import javax.servlet.http.HttpSession;
+
 
 /**
  * 【工程】: contentmarket 包名: com.tarscode.contentmarket.controller 类名: UserController
@@ -21,6 +22,7 @@ import java.util.List;
  */
 
 @Controller
+@RequestMapping("/user")
 public class UserController {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -28,20 +30,19 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @RequestMapping(value = "/user/login", method = RequestMethod.POST)
-    public String login(String name,String password) {
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String login(Model model, String name, String password,HttpSession session) {
         User user = userService.getByName(name);
-        if(user!=null&&user.getPassword().equals(password+user.getSalt())) {
-            return "redirect:/jsp/index.jsp";
-        }else{
-            return "redirect:/jsp/login.jsp";
+        if (user != null && user.getPassword().equals(password + user.getSalt())) {
+            session.setAttribute("userName",user.getName());
+            session.setAttribute("userId",user.getId());
+            session.setAttribute("userType",user.getType());
+            return "index";
+        } else {
+            model.addAttribute("msg","用户名或密码错误");
+            return "login";
         }
     }
 
-    @RequestMapping(value = "/api/login", method = RequestMethod.POST)
-    @ResponseBody
-    public void login2(String name,String password) {
-        User user = userService.getByName(name);
-
-    }
 }

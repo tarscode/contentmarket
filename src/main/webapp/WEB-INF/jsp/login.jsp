@@ -1,11 +1,14 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
 <html>
 <head>
 <meta charset="utf-8"/>
 <title>java</title>
-<link rel="stylesheet" href="../css/style.css"/>
+<link rel="stylesheet" href="../../css/style.css"/>
 </head>
 <body>
+<div >
+     ${msg}
+</div>
 <form class="m-form m-form-ht n-login" id="loginForm" action="/user/login" autocomplete="off" method="post">
     <div class="fmitem">
         <label class="fmlab">用户名：</label>
@@ -13,6 +16,7 @@
             <input class="u-ipt" name="name" autofocus/>
         </div>
     </div>
+
     <div class="fmitem">
         <label class="fmlab">密码：</label>
         <div class="fmipt">
