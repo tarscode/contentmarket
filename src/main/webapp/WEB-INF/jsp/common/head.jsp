@@ -13,7 +13,7 @@
             <li><a href="/index">首页</a></li>
 
             <c:if test="${sessionScope.userType==1}">
-            <li><a href="/account">账务</a></li>
+            <li><a href="/order/list">账务</a></li>
             <li><a href="/cart">购物车</a></li>
             </c:if>
 

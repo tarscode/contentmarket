@@ -16,7 +16,7 @@
     </select>
 
     <insert id="add" parameterType="Order">
-        insert into Item(user_id,item_id,title,image,create_time,price,count) values(#{userId}, #{itemId},${title},#{image},#{createTime},#{price},#{count})
+        insert into _order(user_id,item_id,title,image,create_time,price,count) values(#{userId}, #{itemId},#{title},#{image},#{createTime},#{price},#{count})
     </insert>
 
 </mapper>

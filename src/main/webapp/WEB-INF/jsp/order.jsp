@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
 <meta charset="utf-8"/>
@@ -7,19 +7,7 @@
 </head>
 <body>
 <div class="n-support">请使用Chrome、Safari等webkit内核的浏览器！</div>
-<div class="n-head">
-    <div class="g-doc f-cb">
-        <div class="user">
-            买家你好，<span class="name">mmmmm</span>！<a href="">[退出]</a>
-            请<a href="./login.html">[登录]</a>
-        </div>
-        <ul class="nav">
-            <li><a href="./index.html">首页</a></li>
-            <li><a href="./account.html">账务</a></li>
-            <li><a href="./public.html">发布</a></li>
-        </ul>
-    </div>
-</div>
+<%@include file="common/head.jsp" %>
 <div class="g-doc">
     <div class="m-tab m-tab-fw m-tab-simple f-cb">
         <h2>已购买的内容</h2>
@@ -30,17 +18,19 @@
             <tr><th>内容图片</th><th>内容名称</th><th>购买时间</th><th>购买价格</th></tr>
         </thead>
         <tbody>
+        <c:forEach var="item" items="${list}">
             <tr>
-                <td><a href="./show.html"><img src="http://nec.netease.com/img/s/1.jpg" alt=""></a></td>
-                <td><h4><a href="./show.html">内容名称</a></h4></td>
-                <td><span class="v-time">2016-03-12 12:12</span></td>
-                <td><span class="v-unit">¥</span><span class="value">123.9</span></td>
+                <td><a href="/item/${item.id}"><img src="${item.image}" alt=""></a></td>
+                <td><h4><a href="/item/${item.id}">${item.title}</a></h4></td>
+                <td><span class="v-time">${item.createTime}</span></td>
+                <td><span class="v-unit">¥</span><span class="value">${item.price}</span></td>
             </tr>
+        </c:forEach>
         </tbody>
         <tfoot>
             <tr>
                 <td colspan="3"><div class="total">总计：</div></td>
-                <td><span class="v-unit">¥</span><span class="value">123.9</span></td>
+                <td><span class="v-unit">¥</span><span class="value">${sum}</span></td>
             </tr>
         </tfoot>
     </table>

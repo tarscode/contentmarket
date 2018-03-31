@@ -4,6 +4,7 @@ import com.tarscode.contentmarket.dao.ItemDao;
 import com.tarscode.contentmarket.dao.OrderDao;
 import com.tarscode.contentmarket.entity.*;
 import com.tarscode.contentmarket.service.ItemService;
+import com.tarscode.contentmarket.uitl.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -116,9 +117,12 @@ public class ItemServiceImpl implements ItemService {
         Item item = itemDao.queryById(id);
         Order order = new Order();
         Date date = new Date();
+        String currentDate = DateUtil.date2String(date);
+        order.setItemId(item.getId());
+        order.setPrice(item.getPrice());
         order.setTitle(item.getTitle());
         order.setImage(item.getImage());
-        order.setCreateTime(String.valueOf(date.getTime()));
+        order.setCreateTime(currentDate);
         order.setCount(1);
         orderDao.add(order);
     }

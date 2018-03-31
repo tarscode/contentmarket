@@ -85,6 +85,6 @@ public class ItemConroller {
     @RequestMapping(value = "/buy/{id}",method = RequestMethod.GET)
     public String buyItem(Model model, @PathVariable("id")long id){
         itemService.buyItem(id);
-        return "show";
+        return "index";
     }
 }

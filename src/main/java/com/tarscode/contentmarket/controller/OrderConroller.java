@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
- * 【工程】: contentmarket 包名: com.tarscode.contentmarket.controller 类名: ItemConroller
+ * 【工程】: contentmarket 包名: com.tarscode.contentmarket.controller 类名: OrderConroller
  * 【作者】: liuyang
  * 【时间】: 2018/3/29 13:11
  * 【功能】:
@@ -26,19 +26,20 @@ import java.util.List;
 public class OrderConroller {
 
     @Autowired
-    ItemService itemService;
-
-    @Autowired
     OrderService orderService;
 
 
-    @RequestMapping(value = "/list/all",method = RequestMethod.GET)
+    @RequestMapping(value = "/list",method = RequestMethod.GET)
     public String listAllOrder(Model model){
         User user = new User();
         List<Order> list=orderService.listAll(user);
+        double sum = 0.0;
+        for(Order order : list){
+            sum += order.getPrice();
+        }
         model.addAttribute("list",list);
-        model.addAttribute("flag",1);
-        return "index";
+        model.addAttribute("sum",sum);
+        return "order";
     }
 
 
