@@ -13,14 +13,9 @@
         <h2>已购买的内容</h2>
     </div>
     <table class="m-table m-table-row n-table g-b3">
-        <colgroup>
-            <col class="img"/>
-            <col/>
-            <col class="time"/>
-            <col class="price"/>
-        </colgroup>
+
         <thead>
-        <tr><
+        <tr>
             <th>内容名称</th>
             <th>数量</th>
             <th>购买价格</th>
@@ -37,8 +32,8 @@
 
         <tfoot>
         <tr>
-            <td colspan="3"><a href="/cart/add/${item.id}" class="u-btn u-btn-primary">购 买</a></td>
-            <td><<a href="/index" class="u-btn u-btn-primary">退 出</a></td>
+            <td colspan="3"><a href="/cart/buy" class="u-btn u-btn-primary">购 买</a></td>
+            <td><a href="/index" class="u-btn u-btn-primary">退 出</a></td>
         </tr>
         </tfoot>
     </table>

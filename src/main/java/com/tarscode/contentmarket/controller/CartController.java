@@ -55,6 +55,7 @@ public class CartController {
     public String buy(Model model){
         User user = new User();
         List<Cart> list = cartService.listAll(user);
+        cartService.buy(list);
         return "index";
     }
 
