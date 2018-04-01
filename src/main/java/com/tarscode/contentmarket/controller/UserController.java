@@ -38,7 +38,11 @@ public class UserController {
             session.setAttribute("userName", user.getName());
             session.setAttribute("userId", user.getId());
             session.setAttribute("userType", user.getType());
-            return "index";
+            if(user.getType()==1){
+                return "index";
+            }else{
+                return "index2";
+            }
         } else {
             model.addAttribute("msg", "用户名或密码错误");
             return "login";

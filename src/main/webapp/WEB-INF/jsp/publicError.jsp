@@ -10,7 +10,7 @@
 <div class="g-doc">
     <div class="n-result">
         <h3>发布失败！</h3>
-        <p><a href="./show.html">[查看内容]</a><a href="./index.html">[返回首页]</a></p>
+        <p><a href="/index2">[查看内容]</a><a href="/index2">[返回首页]</a></p>
     </div>
 </div>
 <div class="n-foot">

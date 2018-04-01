@@ -19,9 +19,7 @@
             </div>
             <div class="oprt f-cb">
                 <c:if test="${sessionScope.userType==1}">
-                    <a href="/item/buy/${item.id}" class="u-btn u-btn-primary">购 买</a>
-                    <span class="u-btn u-btn-primary z-dis">已购买</span>
-                    <span class="buyprice">当时购买价格：¥${item.price}</span>
+                    <a href="/cart/add/${item.id}" class="u-btn u-btn-primary">购 买</a>
                 </c:if>
                 <c:if test="${sessionScope.userType==2}">
                     <a href="/item/edit/${item.id}" class="u-btn u-btn-primary">编 辑</a>
